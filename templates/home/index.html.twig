@@ -1,10 +1,113 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}NerdWallet-style Homepage{% endblock %}
 
 {% block body %}
-    <main class="app-home">
-        <h1>Symfony + Twig + Webpack Encore are working</h1>
-        <p>If this text is styled, the app.css entrypoint is loading correctly.</p>
+    <header class="top-nav">
+        <div class="container nav-inner">
+            <div class="brand">nerdwallet</div>
+            <nav>
+                <a href="#">Credit cards</a>
+                <a href="#">Banking</a>
+                <a href="#">Home loans</a>
+                <a href="#">Insurance</a>
+                <a href="#">Personal finance</a>
+            </nav>
+            <button class="btn btn-outline">Sign in</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">YOUR FINANCIAL PARTNER</p>
+                    <h1>Smart financial decisions start with <span>NerdWallet</span></h1>
+                    <p>Navigate every money move with guidance you can trust.</p>
+                    <form class="hero-search">
+                        <input type="text" placeholder="Ask me about investing..."/>
+                        <button class="btn">Search</button>
+                    </form>
+                </div>
+                <div class="hero-image" aria-hidden="true"></div>
+            </div>
+        </section>
+
+        <section class="container card-grid">
+            {% set cards = ['Credit cards', 'Insurance', 'Mortgages', 'Personal loans', 'Small business', 'Banking', 'Investing', 'Student loans'] %}
+            {% for card in cards %}
+                <article class="feature-card">
+                    <h3>{{ card }}</h3>
+                    <p>Compare options and find the best fit for your goals.</p>
+                </article>
+            {% endfor %}
+        </section>
+
+        <section class="trust container section">
+            <h2>Why millions trust NerdWallet</h2>
+            <div class="stats">
+                <div><strong>10M+</strong><span>monthly readers</span></div>
+                <div><strong>15,000+</strong><span>financial products reviewed</span></div>
+                <div><strong>100+</strong><span>expert editors and writers</span></div>
+            </div>
+        </section>
+
+        <section class="news section">
+            <div class="container">
+                <h2>News that impacts your wallet</h2>
+                <div class="news-grid">
+                    <article class="news-card tall"></article>
+                    <article class="news-card"></article>
+                    <article class="news-card"></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="rates container section">
+            <h2>Find smarter rates today</h2>
+            <div class="rate-cards">
+                <article><h3>30-year fixed</h3><p class="value">5.87%</p></article>
+                <article><h3>15-year fixed</h3><p class="value">4.88%</p></article>
+                <article><h3>High-yield savings</h3><p class="value">4.25%</p></article>
+            </div>
+        </section>
+
+        <section class="promo section">
+            <div class="container promo-inner">
+                <div class="promo-image"></div>
+                <div>
+                    <h2>Earn 3.9% APY on your cash</h2>
+                    <p>Secure your future with accounts that work harder for every dollar.</p>
+                    <button class="btn">Unlock my APY</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="resources container section">
+            <h2>More resources</h2>
+            <div class="resource-grid">
+                <ul>
+                    <li>Credit Cards</li>
+                    <li>Insurance</li>
+                    <li>Mortgages</li>
+                    <li>Personal Loans</li>
+                    <li>Small Business</li>
+                    <li>Banking</li>
+                    <li>Investing</li>
+                </ul>
+                <article class="resource-highlight">
+                    <h3>Discover the best transfer credit cards</h3>
+                    <p>Explore offers and compare perks to pick the right card.</p>
+                    <button class="btn">View credit cards</button>
+                </article>
+            </div>
+        </section>
     </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="brand">Finance Smarter</div>
+            <p>© {{ "now"|date("Y") }} NerdWallet clone layout for practice.</p>
+        </div>
+    </footer>
 {% endblock %}
